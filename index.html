@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,11 +8,67 @@
     <title>Nova AI</title>
 
     <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 
 <body>
 
-    <div class="app">
+    <!-- LOGIN -->
+
+    <div id="auth-screen">
+
+        <div class="auth-box">
+
+            <div class="auth-logo">
+                ⚡ Nova AI
+            </div>
+
+            <h1 id="auth-title">Welcome to Nova AI</h1>
+
+            <p id="auth-subtitle">
+                Sign in to continue
+            </p>
+
+            <input
+                id="email"
+                type="email"
+                placeholder="Email"
+                autocomplete="email"
+            >
+
+            <input
+                id="password"
+                type="password"
+                placeholder="Password"
+                autocomplete="current-password"
+            >
+
+            <button
+                id="auth-button"
+                onclick="authenticate()"
+            >
+                Sign In
+            </button>
+
+            <button
+                class="switch-auth"
+                onclick="toggleAuthMode()"
+                id="switch-button"
+            >
+                Create an account
+            </button>
+
+            <p id="auth-message"></p>
+
+        </div>
+
+    </div>
+
+
+    <!-- APP -->
+
+    <div class="app" id="app" style="display:none;">
 
         <aside class="sidebar">
 
@@ -30,6 +87,7 @@
             <div id="chat-list"></div>
 
             <div class="sidebar-bottom">
+
                 <button onclick="openSettings()">
                     ⚙️ Settings
                 </button>
@@ -37,6 +95,7 @@
                 <button onclick="logout()">
                     Log out
                 </button>
+
             </div>
 
         </aside>
@@ -51,20 +110,33 @@
                 </div>
 
                 <div class="account">
-                    <span id="plan">FREE</span>
+
+                    <span id="plan">
+                        FREE
+                    </span>
+
                     <button onclick="upgrade()">
                         Upgrade
                     </button>
+
                 </div>
 
             </header>
 
 
-            <section class="chat-area" id="chat-area">
+            <section
+                class="chat-area"
+                id="chat-area"
+            >
 
-                <div class="welcome" id="welcome">
+                <div
+                    class="welcome"
+                    id="welcome"
+                >
 
-                    <h1>What can I help you create?</h1>
+                    <h1>
+                        What can I help you create?
+                    </h1>
 
                     <p>
                         Ask Nova AI anything.
@@ -72,19 +144,27 @@
 
                     <div class="suggestions">
 
-                        <button onclick="useSuggestion('Help me write a story')">
+                        <button
+                            onclick="useSuggestion('Help me write a story')"
+                        >
                             ✍️ Write a story
                         </button>
 
-                        <button onclick="useSuggestion('Help me learn something new')">
+                        <button
+                            onclick="useSuggestion('Help me learn something new')"
+                        >
                             🧠 Learn something
                         </button>
 
-                        <button onclick="useSuggestion('Help me write some code')">
+                        <button
+                            onclick="useSuggestion('Help me write some code')"
+                        >
                             💻 Write code
                         </button>
 
-                        <button onclick="useSuggestion('Give me some creative ideas')">
+                        <button
+                            onclick="useSuggestion('Give me some creative ideas')"
+                        >
                             💡 Creative ideas
                         </button>
 
@@ -125,7 +205,9 @@
 
     </div>
 
+
     <script src="app.js"></script>
 
 </body>
+
 </html>
