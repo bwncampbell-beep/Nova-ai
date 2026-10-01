@@ -1,5 +1,131 @@
-nova-ai/
-│
-├── index.html
-├── style.css
-└── app.js
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Nova AI</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <aside class="sidebar">
+
+            <div class="logo">
+                ⚡ Nova AI
+            </div>
+
+            <button class="new-chat" onclick="newChat()">
+                + New Chat
+            </button>
+
+            <div class="sidebar-title">
+                Your Chats
+            </div>
+
+            <div id="chat-list"></div>
+
+            <div class="sidebar-bottom">
+                <button onclick="openSettings()">
+                    ⚙️ Settings
+                </button>
+
+                <button onclick="logout()">
+                    Log out
+                </button>
+            </div>
+
+        </aside>
+
+
+        <main class="main">
+
+            <header class="topbar">
+
+                <div class="mobile-logo">
+                    ⚡ Nova AI
+                </div>
+
+                <div class="account">
+                    <span id="plan">FREE</span>
+                    <button onclick="upgrade()">
+                        Upgrade
+                    </button>
+                </div>
+
+            </header>
+
+
+            <section class="chat-area" id="chat-area">
+
+                <div class="welcome" id="welcome">
+
+                    <h1>What can I help you create?</h1>
+
+                    <p>
+                        Ask Nova AI anything.
+                    </p>
+
+                    <div class="suggestions">
+
+                        <button onclick="useSuggestion('Help me write a story')">
+                            ✍️ Write a story
+                        </button>
+
+                        <button onclick="useSuggestion('Help me learn something new')">
+                            🧠 Learn something
+                        </button>
+
+                        <button onclick="useSuggestion('Help me write some code')">
+                            💻 Write code
+                        </button>
+
+                        <button onclick="useSuggestion('Give me some creative ideas')">
+                            💡 Creative ideas
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <div class="composer">
+
+                <div class="input-box">
+
+                    <textarea
+                        id="message"
+                        placeholder="Message Nova AI..."
+                        rows="1"
+                        onkeydown="handleKey(event)"
+                    ></textarea>
+
+                    <button
+                        class="send"
+                        onclick="sendMessage()"
+                    >
+                        ➤
+                    </button>
+
+                </div>
+
+                <div class="disclaimer">
+                    Nova AI can make mistakes. Check important information.
+                </div>
+
+            </div>
+
+        </main>
+
+    </div>
+
+    <script src="app.js"></script>
+
+</body>
+</html>
