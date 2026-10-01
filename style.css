@@ -255,4 +255,76 @@ textarea {
     .account button {
         padding: 7px 10px;
     }
+/* AUTH SCREEN */
+
+#auth-screen {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: #f7f7f8;
+}
+
+.auth-box {
+    width: 100%;
+    max-width: 400px;
+    background: white;
+    border: 1px solid #e5e5e5;
+    border-radius: 18px;
+    padding: 30px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+}
+
+.auth-logo {
+    font-size: 26px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.auth-box h1 {
+    font-size: 25px;
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.auth-box p {
+    text-align: center;
+    color: #777;
+}
+
+.auth-box input {
+    width: 100%;
+    padding: 14px;
+    margin-top: 12px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 16px;
+    outline: none;
+}
+
+.auth-box input:focus {
+    border-color: #777;
+}
+
+#auth-button {
+    width: 100%;
+    margin-top: 16px;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    background: #111;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.switch-auth {
+    width: 100%;
+    margin-top: 12px;
+    padding: 12px;
+    border: none;
+    background: transparent;
+    color: #555;
 }
