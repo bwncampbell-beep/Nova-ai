@@ -181,14 +181,63 @@ function sendMessage() {
     input.value = "";
 
 
-    setTimeout(() => {
+    async function sendMessage() {
+    const input = document.getElementById("message");
+    const message = input.value.trim();
+
+    if (!message) return;
+
+    document.getElementById("welcome")?.remove();
+
+    addMessage(message, "user");
+    input.value = "";
+
+    addMessage("Thinking...", "ai");
+
+    try {
+        const response = await fetch("/api/chat", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                message: message
+            })
+        });
+
+        const data = await response.json();
+
+        // Remove "Thinking..."
+        const chatArea = document.getElementById("chat-area");
+        const messages = chatArea.querySelectorAll(".message");
+        if (messages.length > 0) {
+            messages[messages.length - 1].remove();
+        }
+
+        if (!response.ok) {
+            addMessage(
+                data.error || "Something went wrong.",
+                "ai"
+            );
+            return;
+        }
+
+        addMessage(data.response, "ai");
+
+    } catch (error) {
+        const chatArea = document.getElementById("chat-area");
+        const messages = chatArea.querySelectorAll(".message");
+
+        if (messages.length > 0) {
+            messages[messages.length - 1].remove();
+        }
 
         addMessage(
-            "Your Nova AI account is working. The real AI model will be connected next.",
+            "I couldn't connect to Nova AI. Please try again.",
             "ai"
         );
-
-    }, 500);
+    }
+}
 }
 
 
