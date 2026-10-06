@@ -195,7 +195,7 @@ function sendMessage() {
     addMessage("Thinking...", "ai");
 
     try {
-        const response = await fetch("/api/chat", {
+        const response = await fetch("https://nova-1noowpc6x-nova-e748.vercel.app", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
